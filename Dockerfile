@@ -14,4 +14,4 @@ RUN  ln -fs ../share/.config/yarn/global/node_modules/.bin/code-server /usr/loca
 RUN adduser -D --shell /bin/bash vscode
 USER vscode
 ENV PASSWORD=changeme
-ENTRYPOINT code-server --auth none --bind-addr 0:8443
+ENTRYPOINT code-server --bind-addr 0:8443
