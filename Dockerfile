@@ -10,6 +10,8 @@ FROM alpine
 RUN apk add py3-pip nodejs
 COPY --from=builder /usr/local/share/.config    /usr/local/share/.config
 RUN  ln -fs ../share/.config/yarn/global/node_modules/.bin/code-server /usr/local/bin/code-server
+
+RUN adduser -D --shell /bin/bash vscode
+USER vscode
+ENV PASSWORD=changeme
 ENTRYPOINT code-server --auth none --bind-addr 0:8443
-
-
